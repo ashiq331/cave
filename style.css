@@ -17,8 +17,11 @@ font-family: 'Inter', sans-serif; */
 body {
   background-image: url("imgs/background.png");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   font-family: var(--ff-inter);
+  overflow: hidden !important;
 }
 
 ::-webkit-scrollbar {
@@ -31,9 +34,11 @@ a {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1500px;
   margin: 0 auto;
+  overflow-x: hidden !important;
   position: relative;
+  padding: 0 80px;
 }
 
 .header {
@@ -231,7 +236,8 @@ a {
   background: rgba(217, 217, 217, 0.1);
   backdrop-filter: blur(29.200000762939453px);
   padding: 12px 42px;
-  margin-top: 42rem;
+  width: 360px;
+  margin-top:36rem;
   text-align: left;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -288,13 +294,15 @@ a {
 
 .slider__buttons {
   position: absolute;
-  bottom: 80px;
+  bottom: 60px;
   left: 50%;
+  z-index: 99999999;
 }
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   content: "";
+  z-index: 222;
 }
 
 .swiper-button-next,
@@ -307,24 +315,18 @@ a {
 .swiper-button-next i ,
 .swiper-button-prev i 
 {
-    font-size: 3rem;
+    font-size: 34px;
     color: white;
+    z-index: 9999;
+    background-color: transparent;
 }
 
 .swiper-button-prev {
   left: calc(50% - 21rem);
-  padding: 13px;
-  border-radius: 50%;
-  border: none;
-  outline: none;
 }
 
 .swiper-button-next {
   right: calc(50% - 25rem);
-  padding: 13px;
-  border-radius: 50%;
-  border: none;
-  outline: none;
 }
 
 .swiper-pagination {
@@ -336,13 +338,41 @@ a {
   bottom: 3rem;
   left: 0;
   right: 0;
-  z-index: 999;
+  z-index: -1;
 }
 
 .social__links a {
-  padding-right: 52px;
+  padding-right: 42px;
   color: #fff;
   font-size: 22px;
   font-weight: 300;
   line-height: normal;
+}
+
+@media screen and (max-width: 1480px) {
+  .container
+  {
+    max-width: 1480px;
+    padding: 0 40px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .home__middle .main_img img {
+    transform: translate(-40%, -40%);
+  }
+  .slider__buttons {
+    position: absolute;
+    bottom: 80px;
+    right: 20%;
+    z-index: 222;
+  }
+
+  .swiper-button-prev {
+    left: calc(50% - 16rem);
+  }
+  
+  .swiper-button-next {
+    right: calc(50% - 20rem);
+  }
 }
